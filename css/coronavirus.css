@@ -1,0 +1,46 @@
+
+
+h1 { color:#00668C;
+
+}
+
+h2{ color: #00668C;
+    line-height: 1.5;
+}
+
+h4{color: #00668C;
+
+}
+
+.container{
+    width: 1000px;
+    margin:0 auto;
+}
+
+
+.wrapper{
+    display: flex;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+
+.next_paragrapf{
+    margin-right: 15px;
+
+}
+
+.next-section{
+   margin-top: 30px;
+}
+
+.background{
+    background: whitesmoke;
+}
+
+.width-left{
+    width:490px;
+}
+
