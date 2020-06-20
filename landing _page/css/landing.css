@@ -1,0 +1,138 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    padding:0;
+    margin:0;
+}
+
+
+h1,h2,h3{
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+
+/.navigation{
+    display: inline;
+    background:#6b5b95;
+    border-radius: 100px;
+    padding: 15px;
+    color:honeydew;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+
+
+}
+
+
+.header{
+
+    padding: 150px 0;
+
+
+
+    background: rgba(230,159,147,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(230,159,147,1) 0%, rgba(230,94,85,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(230,159,147,1)), color-stop(100%, rgba(230,94,85,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(230,159,147,1) 0%, rgba(230,94,85,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(230,159,147,1) 0%, rgba(230,94,85,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(230,159,147,1) 0%, rgba(230,94,85,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(230,159,147,1) 0%, rgba(230,94,85,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e69f93', endColorstr='#e65e55', GradientType=1 );
+
+
+
+}
+
+.intro{
+    width:1200px;
+    /color:rgb(84, 84, 125);
+    font-size: 36px;
+    margin-right: 100px;
+    color:honeydew;
+}
+
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.pic1{
+    width: 600px;
+;
+}
+
+.olive{
+    color: #48ed8e;
+}
+
+.logo{
+    width: 100px;
+    padding-left: 100px;
+}
+
+.section2{
+    padding: 100px 0;
+}
+
+.statistics-title{
+    margin-bottom: 70px;
+    font-size: 30px;
+}
+
+.statistics-number{
+    color: #48ed8e;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.statistics-title2{
+    font-size: 20px;
+    text-align: left;
+}
+
+
+
+.statistics-number2{
+    font-size: 50px;
+    position: absolute;
+    padding:40px;
+
+}
+
+.statistics-title3{
+    margin-top:50px;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.background{
+    background:#f5f0f0;
+}
+
+.virus{
+    width: 200px;}
+
+
+.background2{
+    background:#6b5b95 ;
+}
+
+.link{
+
+    color:honeydew;
+    text-decoration: none;
+    font-size: 25px;
+    margin-right: 100px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.link:hover{
+    color:salmon;
+}
+
