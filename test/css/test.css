@@ -1,0 +1,53 @@
+body{
+    margin:0;
+    color:white;
+    background: #6b6fbc;
+
+}
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.background{
+    text-align: center;
+    padding: 100px;
+
+}
+
+.background2{
+    font-size: 20px;
+}
+
+p{
+    margin-bottom: 50px;}
+
+.button{
+    padding: 10px;
+    width: 300px;
+    font-size: 18px;
+}
+
+.questionsVisible {
+    display: block;
+}
+
+.questionsHidden {
+    display: none;
+}
+
+.resultVisible {
+    display: block;
+}
+
+.resultHidden {
+    display: none;
+}
+
+.questionHidden {
+    display: none;
+}
+
+.questionVisible {
+    display: block;
+}
