@@ -1,7 +1,5 @@
 <?php
 
-echo "hello";
-
 if(empty($_GET['name']))
 {
     echo "<p>Введите имя</p>";
