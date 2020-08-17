@@ -11,11 +11,23 @@ $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
 if(pg_num_rows($result) == 0)
 {
-    echo "<p>Нет такого кода. Наебать мемя сука хочешь</p>";
+    echo "<p>Такой номер отсутствует в базе</p>";
     return;
 }
 
 $line = pg_fetch_array($result, null, PGSQL_ASSOC);
 $name = $line['name'];
 $surname = $line['surname'];
-echo "<p>Код выдан на имя $name $surname</p>>";
+$fathername = $line['fathername'];
+$phone = $line['phone'];
+$email = $line['email'];
+$passport = $line['passport'];
+$from = $line['from'];
+$to= $line['to'];
+$day = $line['day'];
+
+echo "<p>Код выдан на имя $name $surname $fathername <br>
+Номер паспорта $passport <br>
+Маршрут передвижения из $from в $to <br>
+Пропуск действителен $day
+</p>";
