@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Получение цифрового пропуска</title>
+    <link rel="stylesheet" href="propusk.css">
 </head>
 <body>
-<div>
+<div class="container">
+<div class="intro">
     <h1>Запрос цифрового пропуска на передвижение по городу</h1>
     <p>Для получения специального цифрового пропуска, подтверждающего возможность передвижения с использованием транспортных средств, выберите цель и заполните все необходимые данные. После отправки сведений вы получите буквенно-цифровой код, который необходимо сохранить (распечатать, сохранить в телефоне, записать) и иметь при себе при передвижении на транспорте. Подробная инструкция по оформлению цифрового пропуска доступна по
         <a href="https://www.mos.ru/otvet-dokumenti/cifrovye-propuska-kto-mozhet-oformit-kak-poluchit-i-na-kakoy-srok/">ссылке</a>
@@ -14,37 +16,24 @@
 <div>
     <h2>Владелец пропуска</h2>
     <form action="get_pass.php">
-        <input type="text" name="surname" placeholder="Введите вашу фамилию">
-        <input type="text" name="name" placeholder="Введите ваше имя">
-        <input type="text" name="fathername" placeholder="Введите ваше отчество">
-        <input type="text" name="phone" placeholder="Введите номер телефона">
-        <input type="email" name="email" placeholder="Введите вашу почту">
-
-        <h2>Документ, удостоверяющий личность</h2>
-        <select name="first[]" multiple size="3">
-            <option disabled>Выберите тип документа</option>
-            <option value="1">Паспорт гражданина РФ</option>
-            <option value="2">Иностранный паспорт</option>
-            <option value="3">Иной документ</option>
-        </select>
-
+        <input type="text" name="surname" placeholder="Введите вашу фамилию" class="field">
+        <input type="text" name="name" placeholder="Введите ваше имя" class="field">
+        <input type="text" name="fathername" placeholder="Введите ваше отчество" class="field">
+        <input type="text" name="phone" placeholder="Введите номер телефона" class="field">
+        <input type="email" name="email" placeholder="Введите вашу почту" class="field">
         <br>
-
-        <input type="text" name="passport" placeholder="Введите серию и номер документа">
-    <h2>Вид транспорта, на котором планируется передвижение</h2>
-        <input type="checkbox" name="private"> Передвигаюсь на личном или служебном транспорте<br>
-        <input type="checkbox" name="public"> Передвигаюсь на общественном транспорте
-
+        <h2>Паспорт</h2>
+        <input type="text" name="passport" placeholder="Номер документа">
         <h2>Маршрут передвижения</h2>
         <input type="text" name="from" placeholder="Адрес отправления">
         <input type="text" name="to" placeholder="Адрес назначения">
 
         <h2>Срок действия</h2>
-        <h5> Срок действия цифрового пропуска составляет 1 календарный день
+        <h5> Введите дату в формате DD.MM.YYYY
         </h5>
         <input type="text" name="day" placeholder="Введите дату поездки">
         <br>
-        <input type="submit" value="Получить">
+        <input type="submit" value="Получить пропуск" class="btn">
 
 
     </form>
@@ -53,8 +42,11 @@
 
     <form action="check_pass.php">
         <input type="text" name="code" placeholder="Введите номер пропуска">
-        <input type="submit" value="Проверить">
+        <input type="submit" value="Проверить пропуск" class="btn">
     </form>
+
+</div>
+
 
 </div>
 

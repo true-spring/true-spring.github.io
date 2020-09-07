@@ -1,111 +1,83 @@
 <?php
 
-if(empty($_GET['name']))
-{
-    echo "<p>Введите имя</p>";
+if (empty($_GET['name'])) {
+    echo "Введите имя";
     return;
 }
 
-if(empty($_GET['surname']))
-{
-    echo "<p>Введите фамилию</p>";
+if (empty($_GET['surname'])) {
+    echo "Введите фамилию";
+    return;
+};
+
+if (empty($_GET['fathername'])) {
+    echo "Введите отчество";
     return;
 }
 
-
-if(empty($_GET['fathername']))
-{
-    echo "<p>Введите отчество</p>";
+if (empty($_GET['phone'])) {
+    echo "Введите телефон";
     return;
 }
 
-
-if(empty($_GET['phone']))
-{
-    echo "<p>Введите номер телефона</p>";
+if (empty($_GET['email'])) {
+    echo "Введите почту";
     return;
 }
 
-
-if(empty($_GET['email']))
-{
-    echo "<p>Введите Email</p>";
+if (empty($_GET['passport'])) {
+    echo "Введите паспортные данные";
     return;
 }
 
-
-
-if(empty($_GET['passport']))
-{
-    echo "<p>Введите серию и номер документа</p>";
+if (empty($_GET['from'])) {
+    echo "Введите пункт отправления";
     return;
 }
 
-
-if(    empty($_GET['private']) && empty($_GET['public']) )
-{
-    echo "<p>Выберите вид транспорта</p>";
+if (empty($_GET['to'])) {
+    echo "Введите пункт назначения";
     return;
 }
 
-if(empty($_GET['from']))
-{
-    echo "<p>Введите адрес отправления</p>";
+if (empty($_GET['day'])) {
+    echo "Введите дату поездки";
     return;
 }
 
-if(empty($_GET['to']))
-{
-    echo "<p>Введите адрес назначения</p>";
-    return;
-}
+$data = date("dmy");
 
-if(empty($_GET['day']))
-{
-    echo "<p>Введите дату поездки</p>";
-    return;
-}
+$random1 = rand(0, 9999);
+$random2 = rand(0, 9999);
+$random3 = rand(0, 9999);
 
-
-//TODO: check other fields
-// 0000-0000-0000-0000
-
-$date = date("dm");
-$rnd0 = rand(0, 9999);
-$rnd1 = rand(0, 9999);
-$rnd2 = rand(0, 9999);
-
-$code = sprintf("%s-%04d-%04d-%04d", $date, $rnd0, $rnd1, $rnd2);
-
-// prepare variables
-$name = $_GET['name'];
-$surname = $_GET['surname'];
-$fathername = $_GET['fathername'];
-$purpose = '---';
-$dbData = date("Y-m-d");
-$desc = '---';
-
-$dbconn = pg_connect("host=localhost dbname=test user=test password=test")
-or die('Could not connect: ' . pg_last_error());
+$code = sprintf("%s-%04d-%04d-%04d", $data, $random1, $random2, $random3);
 
 $args = [
-    "date" => $dbData,
-    "name" => $name,
-    "surname" => $surname,
-    "desc" => $desc,
+    "name" => $_GET['name'],
+    "surname" => $_GET['surname'],
+    "fathername" => $_GET['fathername'],
+    "phone" => $_GET['phone'],
+    "email" => $_GET['email'],
+    "passport" => $_GET['passport'],
+    "from" => $_GET['from'],
+    "to" => $_GET['to'],
+    "day" => $_GET['day'],
     "code" => $code,
-    "fathername" => $fathername,
-    "passport" => $passport,
-    "from" => $from,
-    "to" => $to,
-
 ];
 
-pg_insert($dbconn, "public.pass", $args);
+$connect = pg_connect("host=localhost dbname=test user=test password=test") or die("Ошибка подключения" . pg_last_error());
+pg_insert($connect, "public.pass", $args) or die("Ошибка записи в БД");
 
 
-/*
-$query = 'INSERT INTO public.pass (date, name, surname, purpuse, desc) VALUES';
-$result = pg_query($query) or die('Query failed: ' . pg_last_error());
-*/
-echo "<p>Ваш код " . $code . "</p>";
+echo
+    "<p>Ваш код :  $code  </p>" .
+    "<p>Фамилия: " . $_GET['surname'] . "</p>" .
+    "<p>Имя: " . $_GET['name'] . "</p>" .
+    "<p>Отчество:  " . $_GET['fathername'] . "</p>" .
+    "<p>Паспорт:  " . $_GET['passport'] . "</p>" .
+    "<p> Пропуск действителен :  " . $_GET['day'] . "</p>" .
+    "<p>Маошрут передвижения:  " . $_GET['from'] . "-" . $_GET['to'] . "</p>";
+
+
+pg_close($dbconn);

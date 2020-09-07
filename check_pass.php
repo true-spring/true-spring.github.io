@@ -9,8 +9,7 @@ $query = "SELECT * FROM public.pass WHERE code='$code';";
 
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
-if(pg_num_rows($result) == 0)
-{
+if (pg_num_rows($result) == 0) {
     echo "<p>Такой номер отсутствует в базе</p>";
     return;
 }
@@ -23,11 +22,18 @@ $phone = $line['phone'];
 $email = $line['email'];
 $passport = $line['passport'];
 $from = $line['from'];
-$to= $line['to'];
+$to = $line['to'];
 $day = $line['day'];
 
-echo "<p>Код выдан на имя $name $surname $fathername <br>
-Номер паспорта $passport <br>
-Маршрут передвижения из $from в $to <br>
-Пропуск действителен $day
-</p>";
+echo "<p>Такой пропуск есть в базе данных</p>" .
+    "<p>Номер пропуска:  $code </p>" .
+    "<p>Фамилия:  $surname </p>" .
+    "<p>Имя:  $name </p>" .
+    "<p>Отчество:  $fathername</p>" .
+    "<p>Телефон:  $phone</p>" .
+    "<p>Email: $email</p>" .
+    "<p>Паспорт:  $passport</p>" .
+    "<p> Пропуск действителен : $day</p>" .
+    "<p>Маошрут передвижения:  $from- $to</p>";
+
+pg_close($dbconn);
